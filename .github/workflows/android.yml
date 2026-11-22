@@ -1,0 +1,30 @@
+name: Build GeoDashML Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Android ARM64
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Geode mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: given
+          target: Android64
+          path: mods/bridge
+
+      - name: Upload Android mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: GeoDashML-Android
+          path: output/*.geode
+          if-no-files-found: error
