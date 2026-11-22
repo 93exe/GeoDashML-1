@@ -1,30 +1,26 @@
-name: Build GeoDashML Android
+name: Build Geode Mod (Android arm64)
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build Android ARM64
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Build Geode mod
+      - name: Setup Geode SDK
         uses: geode-sdk/build-geode-mod@main
         with:
-          sdk: given
-          target: Android64
-          path: mods/bridge
+          sdk: '5.11.2'
+          target: 'Android'
+          arch: 'arm64-v8a'
+          build-type: 'Release'
+          output: 'combined.geode'
 
-      - name: Upload Android mod
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: GeoDashML-Android
-          path: output/*.geode
-          if-no-files-found: error
+          name: combined-geode
+          path: combined.geode
