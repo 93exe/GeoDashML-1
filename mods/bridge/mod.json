@@ -3,12 +3,24 @@
     "gd": {
         "android": "2.2081"
     },
-    "version": "v0.2.0",
+    "version": "v1.0.0",
     "id": "sanjey.gdml_bridge",
-    "name": "GDML Bridge Android",
+    "name": "GDML Bridge + Input Buffer",
     "developer": "93exe",
-    "description": "Android bridge for Geometry Dash AI training.",
+    "description": "Android bridge for Geometry Dash AI training with integrated Input Buffer.",
     "tags": [
         "developer"
-    ]
+    ],
+    "settings": {
+        "pause-button": {
+            "type": "bool",
+            "name": "Settings button in pause menu",
+            "default": true
+        },
+        "open-ui": {
+            "type": "custom:open-ui",
+            "name": "Settings window",
+            "default": false
+        }
+    }
 }
