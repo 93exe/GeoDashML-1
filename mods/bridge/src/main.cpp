@@ -1,6 +1,4 @@
-
 // GDML bridge
-
 #include <Geode/Geode.hpp>
 #include <Geode/modify/CCDisplayLinkDirector.hpp>
 #include <Geode/modify/CCKeyboardDispatcher.hpp>
@@ -23,6 +21,7 @@
 #include <filesystem>
 #include <fstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 using namespace geode::prelude;
